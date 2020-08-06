@@ -1,6 +1,6 @@
-import { Entity, PrimaryKey, SerializedPrimaryKey, Property, OneToMany, Collection, Enum, Index } from 'mikro-orm'
-import { ObjectId } from 'mongodb'
+import { Entity, PrimaryKey, Property, OneToMany, OneToOne, Collection, Enum, Index } from 'mikro-orm'
 import { Item } from './Item'
+import { File } from './File'
 
 export enum TypeEnum {
   TAPE = 'tape'
@@ -11,10 +11,7 @@ export enum TypeEnum {
 })
 export class Carousel {
   @PrimaryKey()
-  _id: ObjectId
-  
-  @SerializedPrimaryKey()
-  id!: string
+  id: number
 
   @Index()
   @Property()
@@ -25,4 +22,7 @@ export class Carousel {
 
   @Enum(() => TypeEnum)
   type: TypeEnum = TypeEnum.TAPE
+
+  @OneToOne()
+  audio!: File
 }

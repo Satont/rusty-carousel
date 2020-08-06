@@ -5,7 +5,7 @@ import { Carousel } from '../models/Carousel'
 const route = Router()
 
 route.get('/:id', async (req, res) => {
-  const carousel = await orm.em.getRepository(Carousel).findOneOrFail({ id: req.params.id }, true)
+  const carousel = await orm.em.getRepository(Carousel).findOneOrFail({ id: Number(req.params.id) }, true)
   res.json(carousel)
 })
 
@@ -17,7 +17,7 @@ route.post('/', async (req, res) => {
 })
 
 route.delete('/:id', async (req, res) => {
-  orm.em.getRepository(Carousel).remove({ id: req.params.id })
+  await orm.em.getRepository(Carousel).remove({ id: Number(req.params.id) })
 
   res.send('Ok')
 })

@@ -6,7 +6,8 @@ Vue.use(VueRouter)
 const start = async () => {
   const router = new VueRouter({
     routes: [
-      { path: '/', alias: '/manage/carousel', component: () => import('./views/manage/index.vue') }
+      { path: '/', alias: '/carousel', component: () => import('./views/carousel/index.vue') },
+      { path: '/files/upload', alias: '/files', component: () => import('./views/files/upload.vue') }
     ]
   })
 

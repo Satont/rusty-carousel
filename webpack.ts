@@ -19,13 +19,13 @@ export default {
   module: {
     rules: [
       { test: /\.vue$/i, loader: 'vue-loader' },
-      { test: /\.css$/i, use: ['vue-style-loader', 'css-loader'] },
+      { test: /\.css$/i, use: [ 'vue-style-loader', 'css-loader'] },
       { test: /\.ts$/i, use: { loader: 'ts-loader', options: { experimentalFileCaching: true, appendTsSuffixTo: [/\.vue$/] } } }
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
+    new CleanWebpackPlugin(),
     new HtmlPlugin({
       filename: '../index.html', template: 'src/front/index.html', chunks: ['front']
     }),

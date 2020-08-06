@@ -5,21 +5,25 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dest/index",
     "build:front": "webpack --config webpack.ts",
     "build:back": "tsc --project src/back/tsconfig.json",
     "build": "npm run build:back && npm run build:front",
     "dev:front": "webpack --config webpack.ts --watch --progress",
     "dev:back": "nodemon",
-    "dev": "npm run dev:back && npm run dev:front"
+    "dev": "npm run dev:back && npm run dev:front",
+    "migrate:generate": "mikro-orm migration:create",
+    "migrate": "mikro-orm migration:up"
   },
   "author": "Satont <satontworldwide@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "@types/body-parser": "^1.19.0",
     "@types/express": "^4.17.7",
     "@types/mongodb": "^3.5.25",
     "@types/node": "^14.0.27",
     "clean-webpack-plugin": "^3.0.0",
-    "css-loader": "^4.2.0",
+    "css-loader": "^3.6.0",
     "html-webpack-plugin": "^4.3.0",
     "nodemon": "^2.0.4",
     "ts-loader": "^8.0.2",
@@ -33,16 +37,23 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
+    "@egjs/vue-flicking": "^3.2.1",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mikro-orm": "^3.6.15",
-    "mongodb": "^3.6.0",
+    "pg": "^8.3.0",
     "reflect-metadata": "^0.1.13",
     "vue": "^2.6.11",
     "vue-property-decorator": "^9.0.0",
     "vue-router": "^3.4.1"
   },
   "mikro-orm": {
+    "configPaths": [
+      "./src/back/mikro-orm.config.ts",
+      "./dest/mikro-orm.config.ts"
+    ],
     "useTsNode": true
   }
 }
