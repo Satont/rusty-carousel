@@ -3,3 +3,4 @@ node_modules
 public/dest/*
 public/index.html
 dest
+temp
