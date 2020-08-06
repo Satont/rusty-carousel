@@ -1,0 +1,48 @@
+{
+  "name": "carousel",
+  "version": "0.0.5",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:front": "webpack --config webpack.ts",
+    "build:back": "tsc --project src/back/tsconfig.json",
+    "build": "npm run build:back && npm run build:front",
+    "dev:front": "webpack --config webpack.ts --watch --progress",
+    "dev:back": "nodemon",
+    "dev": "npm run dev:back && npm run dev:front"
+  },
+  "author": "Satont <satontworldwide@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.7",
+    "@types/mongodb": "^3.5.25",
+    "@types/node": "^14.0.27",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^4.2.0",
+    "html-webpack-plugin": "^4.3.0",
+    "nodemon": "^2.0.4",
+    "ts-loader": "^8.0.2",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7",
+    "vue-class-component": "^7.2.5",
+    "vue-loader": "^15.9.3",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mikro-orm": "^3.6.15",
+    "mongodb": "^3.6.0",
+    "reflect-metadata": "^0.1.13",
+    "vue": "^2.6.11",
+    "vue-property-decorator": "^9.0.0",
+    "vue-router": "^3.4.1"
+  },
+  "mikro-orm": {
+    "useTsNode": true
+  }
+}
