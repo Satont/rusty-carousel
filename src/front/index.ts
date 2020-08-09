@@ -6,8 +6,11 @@ Vue.use(VueRouter)
 const start = async () => {
   const router = new VueRouter({
     routes: [
-      { path: '/', alias: '/carousel', component: () => import('./views/carousel/index.vue') },
-      { path: '/files/upload', alias: '/files', component: () => import('./views/files/upload.vue') }
+      { path: '/', component: () => import('./views/carousel/index.vue') },
+      { path: '/carousel/list', component: () => import('./views/manage/carousel/list.vue') },
+      { path: '/carousel/create', component: () => import('./views/manage/carousel/create.vue') },
+      { path: '/files/upload', component: () => import('./views/files/upload.vue') },
+      { path: '/files/list', alias: '/files', component: () => import('./views/files/list.vue') }
     ]
   })
 

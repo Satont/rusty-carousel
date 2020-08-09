@@ -20,7 +20,7 @@ export default {
     rules: [
       { test: /\.vue$/i, loader: 'vue-loader' },
       { test: /\.css$/i, use: [ 'vue-style-loader', 'css-loader'] },
-      { test: /\.ts$/i, use: { loader: 'ts-loader', options: { experimentalFileCaching: true, appendTsSuffixTo: [/\.vue$/] } } }
+      { test: /\.ts$/i, use: { loader: 'ts-loader', options: { appendTsSuffixTo: [/\.vue$/] } } }
     ]
   },
   plugins: [

@@ -18,11 +18,11 @@ export class Carousel {
   name!: string
 
   @OneToMany(() => Item, item => item.carousel)
-  items = new Collection<Item[]>(this)
+  items? = new Collection<Item[]>(this)
 
   @Enum(() => TypeEnum)
   type: TypeEnum = TypeEnum.TAPE
 
   @OneToOne()
-  audio!: File
+  audio?: File
 }

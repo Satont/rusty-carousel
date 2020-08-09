@@ -4,6 +4,11 @@ import { Carousel } from '../models/Carousel'
 
 const route = Router()
 
+route.get('/', async (req, res) => {
+  const carousels = await orm.em.getRepository(Carousel).findAll({ populate: true })
+  res.json(carousels)
+})
+
 route.get('/:id', async (req, res) => {
   const carousel = await orm.em.getRepository(Carousel).findOneOrFail({ id: Number(req.params.id) }, true)
   res.json(carousel)

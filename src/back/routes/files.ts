@@ -9,8 +9,9 @@ route.get('/:id', async (req, res) => {
 })
 
 route.post('/upload', async (req, res) => {
-  console.log(req.body)
-  await uploadFile({ name: req.body.name, type: req.body.type, data: req.body.data })
+  for (const file of req.body) {
+    await uploadFile({ name: file.name, type: file.type, data: file.data })
+  }
   res.send('Ok')
 })
 

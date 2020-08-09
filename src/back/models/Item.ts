@@ -1,6 +1,5 @@
 import { Entity, PrimaryKey, Property, ManyToOne, OneToOne } from 'mikro-orm'
 import { Carousel } from './Carousel'
-import { File } from './File'
 
 @Entity({
   tableName: 'items'
@@ -14,7 +13,4 @@ export class Item {
 
   @ManyToOne()
   carousel!: Carousel
-
-  @OneToOne()
-  image!: File
 }

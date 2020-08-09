@@ -1,6 +1,4 @@
 import { Entity, PrimaryKey, Property, OneToOne, Index } from 'mikro-orm'
-import { Item } from './Item'
-import { Carousel } from './Carousel'
 
 export enum TypeEnum {
   TAPE = 'tape'
@@ -22,11 +20,4 @@ export class File {
 
   @Property({ type: 'text' })
   data!: string
-
-
-  @OneToOne(() => Item, item => item.image)
-  item!: Item
-
-  @OneToOne(() => Carousel, carousel => carousel.audio)
-  carousel!: Item
 }
