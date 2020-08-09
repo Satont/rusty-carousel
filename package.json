@@ -40,6 +40,7 @@
     "@egjs/vue-flicking": "^3.2.1",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
+    "bootstrap-vue": "^2.16.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mikro-orm": "^3.6.15",
